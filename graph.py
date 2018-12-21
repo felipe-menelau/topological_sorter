@@ -25,3 +25,12 @@ class Graph(object):
 
         print stack
 
+    def _visit(self, i, visited, stack):
+        visited[i] = True
+
+        for j in self._graph[i]:
+            if visited[j] == False:
+                self._visit(j, visited, stack)
+
+        stack.inset(0, i)
+
