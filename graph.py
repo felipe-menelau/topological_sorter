@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 class Graph(object):
-    def __init__(self, edges):
+    def __init__(self, edges=[]):
         self._graph = defaultdict(set)
         self.add_edges(edges)
 
@@ -16,10 +16,10 @@ class Graph(object):
         len(self._graph)
 
     def dfs_topological_sort(self):
-        visited = [False]*self.size
+        visited = [False]*self.size()
         stack = []
 
-        for i in range(self.size):
+        for i in range(self.size()):
             if visited[i] == False:
                 self._visit(i, visited, stack)
 
@@ -32,5 +32,5 @@ class Graph(object):
             if visited[j] == False:
                 self._visit(j, visited, stack)
 
-        stack.inset(0, i)
+        stack.insert(0, i)
 
