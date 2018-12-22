@@ -1,13 +1,8 @@
 from collections import defaultdict
 
 class Graph(object):
-    def __init__(self, edges=[]):
+    def __init__(self):
         self._graph = defaultdict(set)
-        self.add_edges(edges)
-
-    def add_edges(self, edges):
-        for node1, node2 in edges:
-            self.add(node1, node2)
 
     def add(self, node1, node2):
         self._graph[node1].add(node2)
