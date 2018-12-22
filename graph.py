@@ -13,13 +13,14 @@ class Graph(object):
         self._graph[node1].add(node2)
 
     def size(self):
-        len(self._graph)
+        return len(self._graph)
 
     def dfs_topological_sort(self):
-        visited = [False]*self.size()
+        visited = dict.fromkeys(self._graph.keys(), False)
+        visited[None] = None
         stack = []
 
-        for i in range(self.size()):
+        for i in visited.keys():
             if visited[i] == False:
                 self._visit(i, visited, stack)
 
